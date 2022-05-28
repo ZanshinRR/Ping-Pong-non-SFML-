@@ -106,6 +106,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 				u32 vk_code = (u32)message.wParam;
 				bool is_down = ((message.lParam & (1 << 31)) == 0);
 
+				//fungsi tombol
 #define process_button(b, vk)\
 case vk: {\
 input.buttons[b].changed = is_down != input.buttons[b].is_down;\
@@ -139,6 +140,7 @@ input.buttons[b].is_down = is_down;\
 		// Render
 		StretchDIBits(hdc, 0, 0, render_state.width, render_state.height, 0, 0, render_state.width, render_state.height, render_state.memory, &render_state.bitmap_info, DIB_RGB_COLORS, SRCCOPY);
 
+		//frame rate
 		LARGE_INTEGER frame_end_time;
 		QueryPerformanceCounter(&frame_end_time);
 		delta_time = (float)(frame_end_time.QuadPart - frame_begin_time.QuadPart) / performance_frequency;

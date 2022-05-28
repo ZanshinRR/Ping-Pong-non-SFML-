@@ -1,3 +1,4 @@
+//sistem render
 internal void
 clear_screen(u32 color) {
 	unsigned int* pixel = (u32*)render_state.memory;
@@ -25,7 +26,7 @@ draw_rect_in_pixels(int x0, int y0, int x1, int y1, u32 color) {
 }
 
 global_variable float render_scale = 0.01f;
-
+//render tembk
 internal void
 draw_arena_borders(float arena_x, float arena_y, u32 color) {
 	arena_x *= render_state.height * render_scale;
@@ -61,7 +62,7 @@ draw_rect(float x, float y, float half_size_x, float half_size_y, u32 color) {
 
 	draw_rect_in_pixels(x0, y0, x1, y1, color);
 }
-
+//render huruf/angka
 const char* letters[][7] = {
 	" 00",
 	"0  0",
@@ -287,7 +288,7 @@ const char* letters[][7] = {
 	"0",
 	"0",
 };
-
+//gambar huruf
 internal void
 draw_text(const char* text, float x, float y, float size, u32 color) {
 	float half_size = size * .5f;
@@ -319,7 +320,7 @@ draw_text(const char* text, float x, float y, float size, u32 color) {
 		y = original_y;
 	}
 }
-
+//gambar anka
 internal void
 draw_number(int number, float x, float y, float size, u32 color) {
 	float half_size = size * .5f;
